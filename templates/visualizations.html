@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Autism Visualizations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #28a745;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1000px;
+            margin-top: 30px;
+            margin-bottom: 60px;
+        }
+        .btn-back {
+            margin: 20px auto;
+            display: block;
+        }
+        .card {
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 15px;
+        }
+        .card-header {
+            font-weight: bold;
+            font-size: 1.25rem;
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Autism Data Visualizations
+    </div>
+
+    <div class="container">
+
+        <a href="{{ url_for('index') }}" class="btn btn-secondary btn-back">← Back to Dashboard</a>
+
+        <!-- 1. ASD vs Non-ASD -->
+        <div class="card">
+            <div class="card-header">1. ASD vs Non-ASD</div>
+            <div class="card-body">
+                {{ asd_chart | safe }}
+                <p class="mt-3">This chart shows the proportion of toddlers with and without ASD traits.</p>
+            </div>
+        </div>
+
+        <!-- 2. Gender Distribution -->
+        <div class="card">
+            <div class="card-header">2. Gender Distribution</div>
+            <div class="card-body">
+                {{ gender_pie | safe }}
+                <p class="mt-3">Displays the gender breakdown of participants.</p>
+            </div>
+        </div>
+
+        <!-- 3. Average Score by Gender -->
+        <div class="card">
+            <div class="card-header">3. Average Score by Gender</div>
+            <div class="card-body">
+                {{ score_gender | safe }}
+                <p class="mt-3">Compares average ASD screening scores between genders.</p>
+            </div>
+        </div>
+
+        <!-- 4. Score Distribution by ASD Traits -->
+        <div class="card">
+            <div class="card-header">4. Score Distribution by ASD Traits</div>
+            <div class="card-body">
+                {{ box_plot | safe }}
+                <p class="mt-3">Shows how ASD-related scores are distributed for Yes vs No groups.</p>
+            </div>
+        </div>
+
+        <!-- 5. Age Distribution -->
+        <div class="card">
+            <div class="card-header">5. Age Distribution</div>
+            <div class="card-body">
+                {{ age_histogram | safe }}
+                <p class="mt-3">Illustrates the age range of toddlers in the dataset.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">6. model confusion matrix</div>
+            <div class="card-body">
+                <link href=""
+                <p> class="mt-3">Displays the gender breakdown of participants.</p>
+            </div>
+        </div>
+        <!-- inside your <body> and <div class="container"> block -->
+
+<!-- 6. Confusion Matrix -->
+<div class="card">
+    <div class="card-header">6. Confusion Matrix</div>
+    <div class="card-body text-center">
+        <img src="{{ url_for('static', filename='Confusionmatrix.png') }}" class="img-fluid rounded" alt="Confusion Matrix">
+        <p class="mt-3">Visual representation of the classifier's predictions vs. actual labels.</p>
+    </div>
+</div>
+
+<!-- 7. Precision, Recall & F1 Score -->
+<div class="card">
+    <div class="card-header">7. Precision, Recall & F1 Score</div>
+    <div class="card-body text-center">
+        <img src="{{ url_for('static', filename='F1socre.png') }}" class="img-fluid rounded" alt="F1 Score Chart">
+        <p class="mt-3">Evaluation metrics for the classifier's performance.</p>
+    </div>
+</div>
+
+<!-- 8. Feature Correlation Heatmap -->
+<div class="card">
+    <div class="card-header">8. Feature Correlation Heatmap</div>
+    <div class="card-body text-center">
+        <img src="{{ url_for('static', filename='heat map.png') }}" class="img-fluid rounded" alt="Heatmap">
+        <p class="mt-3">Displays the relationships between various features.</p>
+    </div>
+</div>
+
+<!-- 9. Predicted Label Distribution -->
+<div class="card">
+    <div class="card-header">9. Predicted Label Distribution</div>
+    <div class="card-body text-center">
+        <img src="{{ url_for('static', filename='Predictedlabesl.png') }}" class="img-fluid rounded" alt="Predicted Labels Histogram">
+        <p class="mt-3">Shows the distribution of predicted labels from the model.</p>
+    </div>
+</div>
+
+<!-- 10. Standard Scaled Features -->
+<div class="card">
+    <div class="card-header">10. Standard Scaled Features</div>
+    <div class="card-body text-center">
+        <img src="{{ url_for('static', filename='scaledfeature1.png') }}" class="img-fluid rounded" alt="Standard Scaled Features">
+        <p class="mt-3">Features scaled using StandardScaler for normalization.</p>
+    </div>
+</div>
+
+<!-- 11. Min-Max Scaled Features -->
+<div class="card">
+    <div class="card-header">11. Min-Max Scaled Features</div>
+    <div class="card-body text-center">
+        <img src="{{ url_for('static', filename='scaledfeature2.png') }}" class="img-fluid rounded" alt="Min-Max Scaled Features">
+        <p class="mt-3">Features scaled using Min-Max Scaling technique.</p>
+    </div>
+    </div>
+</body>
+</html>
